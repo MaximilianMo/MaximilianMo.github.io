@@ -87,7 +87,7 @@
 
    <style type='text/css'>
 .embeddedServiceHelpButton .helpButton .uiButton {
-background-color: #005290;
+background-image: linear-gradient(315deg, rgb(85, 25, 65) 0%, rgb(221, 0, 0) 100%);
 font-family: "Arial", sans-serif;
 }
 .embeddedServiceHelpButton .helpButton .uiButton:focus {
@@ -101,12 +101,12 @@ outline: 1px solid #005290;
 <script type='text/javascript'>
 var initESW = function(gslbBaseURL) {
 embedded_svc.settings.displayHelpButton = true; //Oder falsch
-embedded_svc.settings.language = ''; //Geben Sie zum Beispiel 'de' oder 'de-de' ein.
+embedded_svc.settings.language = 'de'; //Geben Sie zum Beispiel 'de' oder 'de-de' ein.
 
 
 
-//embedded_svc.settings.defaultMinimizedText = '...'; //(Standardmäßig "Chat mit einem Experten")
-//embedded_svc.settings.disabledMinimizedText = '...'; //(Standardmäßig "Agent ist offline")
+embedded_svc.settings.defaultMinimizedText = 'Sie haben Fragen?'; //(Standardmäßig "Chat mit einem Experten")
+//embedded_svc.settings.disabledMinimizedText = 'L'; //(Standardmäßig "Agent ist offline")
 
 
 
