@@ -85,6 +85,81 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
 
-      
+   <style type='text/css'>
+.embeddedServiceHelpButton .helpButton .uiButton {
+background-color: #005290;
+font-family: "Arial", sans-serif;
+}
+.embeddedServiceHelpButton .helpButton .uiButton:focus {
+outline: 1px solid #005290;
+}
+</style>
+
+
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+var initESW = function(gslbBaseURL) {
+embedded_svc.settings.displayHelpButton = true; //Oder falsch
+embedded_svc.settings.language = ''; //Geben Sie zum Beispiel 'de' oder 'de-de' ein.
+
+
+
+//embedded_svc.settings.defaultMinimizedText = '...'; //(Standardmäßig "Chat mit einem Experten")
+//embedded_svc.settings.disabledMinimizedText = '...'; //(Standardmäßig "Agent ist offline")
+
+
+
+//embedded_svc.settings.loadingText = ''; //(Standardmäßig "Laden")
+//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Legt die Domäne für Ihre Bereitstellung fest, damit Besucher während einer Chat-Sitzung in Unterdomänen navigieren können)
+
+
+
+// Einstellungen für Chat
+//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+// Returns a valid button ID.
+//};
+//embedded_svc.settings.prepopulatedPrechatFields = {}; //Legt das automatische Ausfüllen der Felder des Vor-Chat-Formulars fest.
+//embedded_svc.settings.fallbackRouting = []; //Ein Array aus Schaltflächen-IDs, Benutzer-IDs oder userId_buttonId
+//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Standardwert "Kontaktaufnahme")
+
+
+
+embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+embedded_svc.settings.entryFeature = 'LiveAgent';
+
+
+
+embedded_svc.init(
+'https://axelspringer-aboservice.my.salesforce.com',
+'https://askundenservice.force.com/service',
+gslbBaseURL,
+'00D2p000000PkXF',
+'Chatbot_Pilot',
+{
+baseLiveAgentContentURL: 'https://c.la2-c2-cdg.salesforceliveagent.com/content',
+deploymentId: '5727T0000008OKp',
+buttonId: '5737T0000008OIF',
+baseLiveAgentURL: 'https://d.la2-c2-cdg.salesforceliveagent.com/chat',
+eswLiveAgentDevName: 'Chatbot_Pilot',
+isOfflineSupportEnabled: true
+}
+);
+};
+
+
+
+if (!window.embedded_svc) {
+var s = document.createElement('script');
+s.setAttribute('src', 'https://axelspringer-aboservice.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+s.onload = function() {
+initESW(null);
+};
+document.body.appendChild(s);
+} else {
+initESW('https://service.force.com');
+}
+</script>   
   </body>
 </html>
